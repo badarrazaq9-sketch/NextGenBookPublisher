@@ -8,7 +8,7 @@ type SectionHeadingProps = {
   align?: "left" | "center";
 };
 
-/** Consistent heading block for every section — kicker, serif title, optional lead. */
+/** Consistent heading block for every section  kicker, serif title, optional lead. */
 export default function SectionHeading({
   kicker,
   title,

@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NexGen Book Publishers — Premium Ghostwriting & Publishing House",
+  title: "NexGen Book Publishers  Premium Ghostwriting & Publishing House",
   description:
-    "NexGen Book Publishers turns your ideas into beautifully published books. Ghostwriting, editing, cover design, publishing, and book marketing — handled end to end by industry veterans.",
+    "NexGen Book Publishers turns your ideas into beautifully published books. Ghostwriting, editing, cover design, publishing, and book marketing  handled end to end by industry veterans.",
   keywords: [
     "book publishing",
     "ghostwriting",

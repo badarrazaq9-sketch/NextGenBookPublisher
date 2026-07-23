@@ -1,5 +1,5 @@
 /**
- * NexGen Book Publishers — central content store.
+ * NexGen Book Publishers  central content store.
  * Edit this single file to update copy across every section and future pages.
  */
 
@@ -7,23 +7,22 @@ export const site = {
   name: "NexGen Book Publishers",
   shortName: "NexGen",
   tagline: "Where great stories become published legacies.",
-  phone: "+1 (888) 555-0142",
+  phone: "+1 (843) 410-9324",
   phoneHref: "tel:+18885550142",
   email: "hello@nexgenbookpublishers.com",
   address: "244 Fifth Avenue, Suite 1200, New York, NY 10001",
   hours: "Mon – Fri, 9:00 AM – 6:00 PM EST",
 };
 
-export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Our Books", href: "#books" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+const navLinks = [
+  { label: "Home", href: "/home" },        // ← Changed from "/"
+  { label: "Services", href: "/services" },
+  { label: "Process", href: "/process" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
-
 export const heroStats = [
   { value: "500+", label: "Books Published" },
   { value: "120+", label: "Bestselling Titles" },
@@ -50,7 +49,7 @@ export const services = [
     icon: "Palette",
     title: "Cover Design & Typesetting",
     description:
-      "Bespoke covers and interior layouts engineered to stand out on a shelf — and in a thumbnail.",
+      "Bespoke covers and interior layouts engineered to stand out on a shelf  and in a thumbnail.",
     points: ["Custom cover art", "Interior typesetting", "eBook formatting"],
   },
   {
@@ -81,7 +80,7 @@ export const processSteps = [
     step: "01",
     title: "Discovery & Strategy",
     description:
-      "A dedicated publishing consultant maps your goals, audience, and market position — then builds a roadmap for your book.",
+      "A dedicated publishing consultant maps your goals, audience, and market position  then builds a roadmap for your book.",
   },
   {
     step: "02",
@@ -99,7 +98,7 @@ export const processSteps = [
     step: "04",
     title: "Publishing & Launch",
     description:
-      "We handle ISBNs, distribution, and launch marketing — you keep 100% of your rights and royalties.",
+      "We handle ISBNs, distribution, and launch marketing  you keep 100% of your rights and royalties.",
   },
 ];
 
@@ -151,7 +150,7 @@ export const books = [
 export const whyUsPoints = [
   {
     title: "You keep 100% of rights & royalties",
-    description: "Your name on the cover, your copyright, every dollar of royalty — always.",
+    description: "Your name on the cover, your copyright, every dollar of royalty  always.",
   },
   {
     title: "Vetted, bestselling talent",
@@ -184,7 +183,7 @@ export const testimonials = [
   },
   {
     quote:
-      "As a CEO, I had no time to write — but I had a book in me. NexGen extracted it in interviews and wrote in my exact voice.",
+      "As a CEO, I had no time to write  but I had a book in me. NexGen extracted it in interviews and wrote in my exact voice.",
     name: "Marcus Reid",
     role: "Author, Empire of Mind",
     initials: "MR",
@@ -254,7 +253,7 @@ export const faqs = [
   {
     question: "Who owns the rights to my book?",
     answer:
-      "You do — completely. Every contract assigns 100% of copyright, royalties, and creative control to you. We work for hire; your name is the only one on the cover.",
+      "You do  completely. Every contract assigns 100% of copyright, royalties, and creative control to you. We work for hire; your name is the only one on the cover.",
   },
   {
     question: "How long does it take to publish a book?",
@@ -264,12 +263,12 @@ export const faqs = [
   {
     question: "Will anyone know I used a ghostwriter?",
     answer:
-      "Never. Every engagement is protected by a mutual NDA. Ghostwriting is a standard practice throughout the publishing industry — your confidentiality is absolute.",
+      "Never. Every engagement is protected by a mutual NDA. Ghostwriting is a standard practice throughout the publishing industry  your confidentiality is absolute.",
   },
   {
     question: "Where will my book be sold?",
     answer:
-      "We distribute to Amazon, Barnes & Noble, Apple Books, Kobo, IngramSpark, and through Ingram's network of 40,000+ bookstores and libraries worldwide — in print, eBook, and audio.",
+      "We distribute to Amazon, Barnes & Noble, Apple Books, Kobo, IngramSpark, and through Ingram's network of 40,000+ bookstores and libraries worldwide  in print, eBook, and audio.",
   },
   {
     question: "Can I be involved in the writing process?",
@@ -306,3 +305,103 @@ export const footerColumns = [
     ],
   },
 ];
+// export const pageHeaders = {
+//   home: {
+//     kicker: "Premium Publishing House",
+//     title: "Where Stories Become",
+//     highlight: "Timeless Books",
+//     description: "From first draft to global distribution...",
+//   },
+//   services: {
+//     kicker: "What We Do",
+//     title: "Services Built for",
+//     highlight: "Serious Authors",
+//     description: "From the first word to the final sale...",
+//   },
+//   contact: {
+//     kicker: "Get in Touch",
+//     title: "Let's Start Your",
+//     highlight: "Book Journey",
+//     description: "Have a manuscript in mind?...",
+//   },
+//   about: {
+//     kicker: "Who We Are",
+//     title: "Crafting Literary",
+//     highlight: "Excellence",
+//     description: "Two decades of publishing expertise...",
+//   },
+//   portfolio: {
+//     kicker: "Our Work",
+//     title: "Books That",
+//     highlight: "Inspire Readers",
+//     description: "Explore our portfolio...",
+//   },
+//   pricing: {
+//     kicker: "Investment",
+//     title: "Publishing Plans for",
+//     highlight: "Every Author",
+//     description: "Transparent pricing...",
+//   },
+// } as const;
+
+// Add this to your existing lib/data.ts file
+
+/** Page header data for each route */
+export const pageHeaders = {
+  home: {
+    kicker: "Premium Publishing House",
+    title: "Where Stories Become",
+    highlight: "Timeless Books",
+    description:
+      "From first draft to global distribution, we transform manuscripts into masterpieces that captivate readers worldwide.",
+  },
+  services: {
+    kicker: "What We Do",
+    title: "Services Built for",
+    highlight: "Serious Authors",
+    description:
+      "From the first word to the final sale, we provide everything you need to publish a professional book that stands out in the market.",
+  },
+  process: {
+    kicker: "Our Process",
+    title: "From Idea to",
+    highlight: "Published Book",
+    description:
+      "A proven 6-step journey that transforms your manuscript into a professionally published book available worldwide.",
+  },
+  portfolio: {
+    kicker: "Our Work",
+    title: "Books That",
+    highlight: "Inspire Readers",
+    description:
+      "Explore our portfolio of published works  from memoirs to thrillers, each book crafted with precision and passion.",
+  },
+  pricing: {
+    kicker: "Investment",
+    title: "Publishing Plans for",
+    highlight: "Every Author",
+    description:
+      "Transparent pricing with no hidden fees. Choose the package that fits your vision and budget.",
+  },
+  faq: {
+    kicker: "Common Questions",
+    title: "Everything You Need to",
+    highlight: "Know",
+    description:
+      "Find answers to frequently asked questions about our publishing process, pricing, and services.",
+  },
+  contact: {
+    kicker: "Get in Touch",
+    title: "Let's Start Your",
+    highlight: "Book Journey",
+    description:
+      "Have a manuscript in mind? Fill out the form below and our team will get back to you within 24 hours.",
+  },
+  about: {
+    kicker: "Who We Are",
+    title: "Crafting Literary",
+    highlight: "Excellence",
+    description:
+      "Two decades of publishing expertise, hundreds of bestsellers, and a passion for bringing extraordinary stories to life.",
+  },
+} as const;

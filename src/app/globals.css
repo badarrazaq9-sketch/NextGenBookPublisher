@@ -85,3 +85,13 @@ body {
     @apply w-full rounded-xl border border-gold-500/15 bg-ink-900/70 px-4 py-3.5 text-sm text-cream placeholder:text-muted/60 outline-none transition-colors duration-300 focus:border-gold-500/60 focus:ring-2 focus:ring-gold-500/20;
   }
 }
+@layer utilities {
+  @keyframes shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+  }
+}

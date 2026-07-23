@@ -23,7 +23,7 @@ export default function FeaturedBooks() {
                   <div className="relative aspect-[2/3] w-full">
                     <Image
                       src={book.cover}
-                      alt={`${book.title} by ${book.author} — book cover`}
+                      alt={`${book.title} by ${book.author}  book cover`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"

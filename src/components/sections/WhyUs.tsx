@@ -28,7 +28,7 @@ export default function WhyUs() {
             <div>
               <p className="text-sm font-semibold text-cream">The NexGen Guarantee</p>
               <p className="mt-0.5 text-xs leading-relaxed text-muted">
-                100% rights, 100% royalties, unlimited creative control — in writing.
+                100% rights, 100% royalties, unlimited creative control  in writing.
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@ export default function WhyUs() {
             </h2>
             <p className="max-w-xl text-base leading-relaxed text-muted">
               We built NexGen for authors who refuse to choose between creative
-              control and professional polish. You get a Big-5 caliber team —
+              control and professional polish. You get a Big-5 caliber team 
               and a contract that keeps the book entirely, legally yours.
             </p>
           </Reveal>

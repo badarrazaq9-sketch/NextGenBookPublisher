@@ -34,7 +34,7 @@ export default function CtaBanner() {
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted">
                 Book a free 30-minute consultation. We'll discuss your idea, map
-                the route to publication, and give you an honest quote — no
+                the route to publication, and give you an honest quote  no
                 pressure, no obligation.
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-4">

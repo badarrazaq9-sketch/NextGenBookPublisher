@@ -23,7 +23,7 @@ export default function Contact() {
           kicker="Contact"
           title="Let's talk about"
           highlight="your book."
-          description="Tell us where you are in the journey — an idea, a draft, or a finished manuscript — and we'll respond within one business day."
+          description="Tell us where you are in the journey  an idea, a draft, or a finished manuscript  and we'll respond within one business day."
         />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -59,7 +59,7 @@ export default function Contact() {
                     <CheckCircle2 size={30} />
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-semibold text-cream">
-                    Thank you — we've received your brief.
+                    Thank you  we've received your brief.
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
                     A publishing consultant will reach out within one business

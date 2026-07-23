@@ -11,7 +11,7 @@ export default function Testimonials() {
           kicker="Authors Speak"
           title="Trusted by the writers"
           highlight="behind the books."
-          description="First-time memoirists, CEOs, and career novelists — here's what they say about publishing with NexGen."
+          description="First-time memoirists, CEOs, and career novelists  here's what they say about publishing with NexGen."
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

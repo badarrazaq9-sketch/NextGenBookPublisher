@@ -32,7 +32,7 @@ export default function Hero() {
           <Reveal delay={0.2}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
               From a spark of an idea to a beautifully bound book in readers'
-              hands — NexGen handles ghostwriting, editing, design, publishing,
+              hands  NexGen handles ghostwriting, editing, design, publishing,
               and marketing under one gilded roof. You keep every right and
               every royalty.
             </p>
@@ -69,10 +69,10 @@ export default function Hero() {
           <div className="absolute inset-0 -z-10 scale-90 rounded-full bg-gold-500/10 blur-[100px]" />
           <div className="animate-float">
             <Image
-              src="/images/logo-mark.png"
+              src="/images/Nextgen.png"
               alt="NexGen golden quill and open book emblem"
-              width={520}
-              height={480}
+              width={820}
+              height={780}
               className="w-full drop-shadow-[0_30px_60px_rgba(212,175,55,0.25)]"
               priority
             />

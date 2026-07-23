@@ -1,12 +1,15 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
 import { footerColumns, site } from "@/lib/data";
 
 const socials = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Facebook, href: "https://facebook.com/nexgenpublishers", label: "Facebook" },
+  { icon: Instagram, href: "https://instagram.com/nexgenpublishers", label: "Instagram" },
+  { icon: Twitter, href: "https://twitter.com/nexgenpublishers", label: "Twitter" },
+  { icon: Linkedin, href: "https://linkedin.com/company/nexgenpublishers", label: "LinkedIn" },
 ];
 
 export default function Footer() {
@@ -15,15 +18,22 @@ export default function Footer() {
       <div className="container-site grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         {/* Brand */}
         <div>
-          <a href="#home" className="inline-block">
+          {/* 
+            FOOTER LOGO - BIGGER & RESPONSIVE
+            Mobile:  h-20 (80px)
+            Tablet:  h-24 (96px)
+            Desktop: h-32 (128px)
+            Large:   h-40 (160px) - Big and readable!
+          */}
+          <Link href="/home" className="inline-block">
             <Image
-              src="/images/logo-full.png"
-              alt="NexGen Book Publishers"
-              width={170}
-              height={160}
-              className="h-36 w-auto"
+              src="/images/Nextgen.png"
+              alt="NextGen Book Publishers"
+              width={500}
+              height={200}
+              className="h-20 w-auto object-contain sm:h-24 md:h-28 lg:h-32 xl:h-40"
             />
-          </a>
+          </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
             A premium publishing house for authors who expect more — from first
             idea to bookshelf, we craft books that endure.
@@ -33,6 +43,8 @@ export default function Footer() {
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-500/20 text-gold-300 transition-all duration-300 hover:border-gold-400 hover:bg-gold-500/10 hover:text-gold-200"
               >
@@ -51,12 +63,12 @@ export default function Footer() {
             <ul className="mt-5 space-y-3">
               {col.links.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-cream/65 transition-colors duration-300 hover:text-gold-300"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -94,8 +106,8 @@ export default function Footer() {
         <div className="container-site flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted sm:flex-row">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="transition-colors hover:text-gold-300">Privacy Policy</a>
-            <a href="#" className="transition-colors hover:text-gold-300">Terms of Service</a>
+            <Link href="/privacy" className="transition-colors hover:text-gold-300">Privacy Policy</Link>
+            <Link href="/terms" className="transition-colors hover:text-gold-300">Terms of Service</Link>
           </div>
         </div>
       </div>

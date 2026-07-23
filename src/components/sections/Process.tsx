@@ -12,7 +12,7 @@ export default function Process() {
           kicker="How It Works"
           title="A refined process,"
           highlight="four golden steps."
-          description="Transparent, milestone-driven, and built around your schedule — you approve every stage before we move forward."
+          description="Transparent, milestone-driven, and built around your schedule  you approve every stage before we move forward."
         />
 
         <div className="relative mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
