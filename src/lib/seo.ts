@@ -71,43 +71,43 @@ export const meta = {
     title: "Publishing Services",
     description:
       "Six disciplines, one team. Ghostwriting, editing, cover design, publishing, marketing & audiobook production for serious authors.",
-    path: "/services",
+    path: "",
   }),
   ghostwriting: makeMetadata({
     title: "Ghostwriting Services",
     description:
       "Work one-on-one with award-winning ghostwriters. Fiction, memoir & business books written in your voice. 100% confidential.",
-    path: "/services/ghostwriting",
+    path: "/ghostwriting",
   }),
   editing: makeMetadata({
     title: "Book Editing & Proofreading",
     description:
       "Developmental, line, and copy editing by career editors. Polish your manuscript to publishing perfection.",
-    path: "/services/editing-proofreading",
+    path: "/editing-proofreading",
   }),
   design: makeMetadata({
     title: "Cover Design & Typesetting",
     description:
       "Bespoke covers and interior layouts that stand out on shelves and in thumbnails. Custom artwork, no templates.",
-    path: "/services/cover-design-typesetting",
+    path: "/cover-design-typesetting",
   }),
   publishing: makeMetadata({
     title: "Publishing & Distribution",
     description:
       "ISBN registration, print-on-demand, and global distribution to 40,000+ retailers. Publish under your name.",
-    path: "/services/publishing-distribution",
+    path: "/publishing-distribution",
   }),
   marketing: makeMetadata({
     title: "Book Marketing & PR",
     description:
       "Launch campaigns, Amazon ads, press outreach, and platform building. Put your book in front of readers who will love it.",
-    path: "/services/book-marketing-pr",
+    path: "/book-marketing-pr",
   }),
   audiobook: makeMetadata({
     title: "Audiobook Production",
     description:
       "Studio-grade narration and mastering for Audible, Apple Books & Spotify. Pro narrators matched to your genre.",
-    path: "/services/audiobook-production",
+    path: "/audiobook-production",
   }),
   process: makeMetadata({
     title: "Our Publishing Process",
