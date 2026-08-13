@@ -15,16 +15,10 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="border-t border-gold-500/10 bg-ink-900">
-      <div className="container-site grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+      {/* Grid updated to 5 columns: Brand | Services | Company | Legal | Contact */}
+      <div className="container-site grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr]">
         {/* Brand */}
         <div>
-          {/* 
-            FOOTER LOGO - BIGGER & RESPONSIVE
-            Mobile:  h-20 (80px)
-            Tablet:  h-24 (96px)
-            Desktop: h-32 (128px)
-            Large:   h-40 (160px) - Big and readable!
-          */}
           <Link href="/home" className="inline-block">
             <Image
               src="/images/Nextgen.png"
@@ -35,7 +29,7 @@ export default function Footer() {
             />
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
-            A premium publishing house for authors who expect more — from first
+            A premium publishing house for authors who expect more from first
             idea to bookshelf, we craft books that endure.
           </p>
           <div className="mt-6 flex gap-3">
@@ -54,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Link columns */}
+        {/* Link columns Services, Company, Legal */}
         {footerColumns.map((col) => (
           <div key={col.title}>
             <h4 className="text-xs font-semibold uppercase tracking-[0.28em] text-gold-400">
@@ -105,9 +99,11 @@ export default function Footer() {
       <div className="border-t border-gold-500/10">
         <div className="container-site flex flex-col items-center justify-between gap-3 py-6 text-xs text-muted sm:flex-row">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+          {/* Bottom bar links all 3 policy pages */}
           <div className="flex gap-6">
             <Link href="/privacy" className="transition-colors hover:text-gold-300">Privacy Policy</Link>
             <Link href="/terms" className="transition-colors hover:text-gold-300">Terms of Service</Link>
+            <Link href="/cookies" className="transition-colors hover:text-gold-300">Cookie Policy</Link>
           </div>
         </div>
       </div>

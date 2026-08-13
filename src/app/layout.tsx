@@ -14,18 +14,60 @@ const inter = Inter({
   display: "swap",
 });
 
+import { orgSchema, localSchema, siteName } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+
 export const metadata: Metadata = {
-  title: "NexGen Book Publishers  Premium Ghostwriting & Publishing House",
+  metadataBase: new URL("https://www.nextgenbookpublishers.com"),
+  title: {
+    default: `${siteName} | Premium Ghostwriting & Publishing House`,
+    template: `%s | ${siteName}`,
+  },
   description:
-    "NexGen Book Publishers turns your ideas into beautifully published books. Ghostwriting, editing, cover design, publishing, and book marketing  handled end to end by industry veterans.",
+    "A premium publishing house for authors who expect more. Ghostwriting, editing, design, publishing, and marketing under one roof. You keep 100% rights & royalties.",
   keywords: [
-    "book publishing",
-    "ghostwriting",
+    "book publishers",
+    "ghostwriting services",
+    "self publishing",
     "book editing",
     "cover design",
+    "audiobook production",
     "book marketing",
-    "NexGen Book Publishers",
+    "ISBN registration",
+    "Columbia SC publishers",
+    "publish my book",
   ],
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.nextgenbookpublishers.com",
+    siteName,
+    title: `${siteName} | Premium Ghostwriting & Publishing House`,
+    description:
+      "From first draft to global distribution. You keep every right and every royalty.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: "Premium ghostwriting & publishing house. You keep 100% rights & royalties.",
+  },
+verification: {
+  google: "U8umgHsbByMjxcJOCrT2vA9LZMwqe1syXf_Eyz7-OIo",
+},
 };
 
 export default function RootLayout({
@@ -33,7 +75,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+                <JsonLd data={[orgSchema, localSchema]} />
+
+        {children}</body>
     </html>
   );
 }

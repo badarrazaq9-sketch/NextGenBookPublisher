@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Loader2 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import { services, site } from "@/lib/data";
@@ -15,6 +15,44 @@ const contactCards = [
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSending(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      service: formData.get("service") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.error || "Something went wrong");
+      }
+
+      setSubmitted(true);
+      e.currentTarget.reset();
+    } catch (err: any) {
+      setError(err.message || "Failed to send. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <section id="contact" className="relative py-24 lg:py-32">
@@ -23,7 +61,7 @@ export default function Contact() {
           kicker="Contact"
           title="Let's talk about"
           highlight="your book."
-          description="Tell us where you are in the journey  an idea, a draft, or a finished manuscript  and we'll respond within one business day."
+          description="Tell us where you are in the journey — an idea, a draft, or a finished manuscript — and we'll respond within one business day."
         />
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -59,7 +97,7 @@ export default function Contact() {
                     <CheckCircle2 size={30} />
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-semibold text-cream">
-                    Thank you  we've received your brief.
+                    Thank you — we've received your brief.
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
                     A publishing consultant will reach out within one business
@@ -70,25 +108,19 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <form
-                  className="relative grid gap-5"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSubmitted(true);
-                  }}
-                >
+                <form onSubmit={handleSubmit} className="relative grid gap-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label htmlFor="name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
-                        Full Name
+                        Full Name *
                       </label>
-                      <input id="name" required placeholder="Jane Austen" className="input-lux" />
+                      <input name="name" id="name" required placeholder="Jane Austen" className="input-lux" />
                     </div>
                     <div>
                       <label htmlFor="email" className="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
-                        Email
+                        Email *
                       </label>
-                      <input id="email" type="email" required placeholder="jane@example.com" className="input-lux" />
+                      <input name="email" id="email" type="email" required placeholder="jane@example.com" className="input-lux" />
                     </div>
                   </div>
 
@@ -97,13 +129,13 @@ export default function Contact() {
                       <label htmlFor="phone" className="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
                         Phone
                       </label>
-                      <input id="phone" type="tel" placeholder="+1 (555) 000-0000" className="input-lux" />
+                      <input name="phone" id="phone" type="tel" placeholder="+1 (555) 000-0000" className="input-lux" />
                     </div>
                     <div>
                       <label htmlFor="service" className="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
                         I'm Interested In
                       </label>
-                      <select id="service" className="input-lux appearance-none" defaultValue="">
+                      <select name="service" id="service" className="input-lux appearance-none" defaultValue="">
                         <option value="" disabled className="bg-ink-800">Select a service…</option>
                         {services.map((s) => (
                           <option key={s.title} value={s.title} className="bg-ink-800">
@@ -117,9 +149,10 @@ export default function Contact() {
 
                   <div>
                     <label htmlFor="message" className="mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
-                      About Your Book
+                      About Your Book *
                     </label>
                     <textarea
+                      name="message"
                       id="message"
                       required
                       rows={5}
@@ -128,9 +161,26 @@ export default function Contact() {
                     />
                   </div>
 
-                  <button type="submit" className="btn-gold mt-2 w-full sm:w-auto">
-                    Send My Brief
-                    <Send size={15} />
+                  {error && (
+                    <p className="text-sm text-red-400">{error}</p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={sending}
+                    className="btn-gold mt-2 w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {sending ? (
+                      <>
+                        <Loader2 size={15} className="animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send My Brief
+                        <Send size={15} />
+                      </>
+                    )}
                   </button>
                   <p className="text-center text-[11px] text-muted sm:text-left">
                     Protected by our mutual NDA. We never share your ideas or information.

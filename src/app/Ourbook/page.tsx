@@ -124,18 +124,20 @@ const stats = [
   { icon: Users, value: "50K+", label: "Happy Readers" },
 ];
 
-/* ─────────── Schema: CollectionPage (Google shows book carousel) ─────────── */
+/* ─────────── Schema: CollectionPage ─────────── */
+const siteUrl = "https://www.nextgenbookpublishers.com";
+
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "NexGen Book Publishers Portfolio",
   description:
-    "Explore our portfolio of published books  from Pulitzer finalists to Wall Street Journal bestsellers. Award-winning books across every genre.",
-  url: "https://nexgenpublishers.com/portfolio",
+    "Explore our portfolio of published books — from Pulitzer finalists to Wall Street Journal bestsellers. Award-winning books across every genre.",
+  url: `${siteUrl}/portfolio`,
   isPartOf: {
     "@type": "WebSite",
     name: "NexGen Book Publishers",
-    url: "https://nexgenpublishers.com",
+    url: siteUrl,
   },
   about: {
     "@type": "Thing",
@@ -157,16 +159,14 @@ const collectionSchema = {
         description: book.description,
         isbn: book.isbn,
         datePublished: book.publishDate,
-        image: `https://nexgenpublishers.com${book.coverImage}`,
+        image: `${siteUrl}${book.coverImage}`,
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: book.rating,
           reviewCount: book.reviews,
           bestRating: 5,
         },
-        ...(book.award && {
-          award: book.award,
-        }),
+        ...(book.award && { award: book.award }),
         ...(book.amazonUrl && {
           offers: {
             "@type": "Offer",
@@ -177,7 +177,7 @@ const collectionSchema = {
         publisher: {
           "@type": "Organization",
           name: "NexGen Book Publishers",
-          logo: "https://nexgenpublishers.com/images/logo-full.png",
+          logo: `${siteUrl}/images/Nextgen.png`,
         },
       },
     })),
@@ -189,18 +189,18 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "BookStore"],
   name: "NexGen Book Publishers",
-  url: "https://nexgenpublishers.com",
-  logo: "https://nexgenpublishers.com/images/logo-full.png",
+  url: siteUrl,
+  logo: `${siteUrl}/images/Nextgen.png`,
   description:
-    "Premium publishing house for authors who expect more. Ghostwriting, editing, design, publishing & marketing.",
-  telephone: "+1-555-123-4567",
-  email: "hello@nexgenpublishers.com",
+    "Premium publishing house for authors who expect more. Ghostwriting, editing, design, publishing & marketing. You keep 100% rights & royalties.",
+  telephone: "+1-843-410-9324",
+  email: "hello@nextgenbookpublishers.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "123 Publishing Ave",
-    addressLocality: "New York",
-    addressRegion: "NY",
-    postalCode: "10001",
+    streetAddress: "1320 Main St, Suite 300",
+    addressLocality: "Columbia",
+    addressRegion: "SC",
+    postalCode: "29201",
     addressCountry: "US",
   },
   aggregateRating: {
@@ -214,7 +214,6 @@ const organizationSchema = {
     "https://instagram.com/nexgenpublishers",
     "https://twitter.com/nexgenpublishers",
     "https://linkedin.com/company/nexgenpublishers",
-    "https://goodreads.com/nexgenpublishers",
   ],
 };
 
@@ -227,13 +226,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://nexgenpublishers.com",
+      item: siteUrl,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Portfolio",
-      item: "https://nexgenpublishers.com/portfolio",
+      item: `${siteUrl}/portfolio`,
     },
   ],
 };
@@ -289,7 +288,7 @@ function BookCard({ book, index }: { book: Book; index: number }) {
                 <span className="text-xs text-muted">{book.publishDate}</span>
               </div>
 
-              <h3 className="mt-3 font-display text-xl font-semibold text-cream text-gold-shimmer cursor-default sm:text-2xl">
+              <h3 className="mt-3 font-display text-xl font-semibold text-cream sm:text-2xl">
                 {book.title}
               </h3>
               <p className="mt-1 text-sm text-gold-400">by {book.author}</p>
@@ -335,7 +334,7 @@ export default function PortfolioPage() {
     title: "Books That",
     highlight: "Inspire Readers",
     description:
-      "Explore our portfolio of published works  from memoirs to thrillers, each book crafted with precision and passion.",
+      "Explore our portfolio of published works — from memoirs to thrillers, each book crafted with precision and passion.",
   };
 
   return (
@@ -379,7 +378,7 @@ export default function PortfolioPage() {
                   return (
                     <div key={stat.label} className="text-center">
                       <Icon size={24} className="mx-auto text-gold-400" />
-                      <p className="mt-3 font-display text-3xl font-bold text-gold-shimmer">
+                      <p className="mt-3 font-display text-3xl font-bold text-gold-300">
                         {stat.value}
                       </p>
                       <p className="mt-1 text-xs uppercase tracking-wider text-muted">
@@ -404,8 +403,8 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* ── CTA Banner ── */}
-    <Contact />
+        {/* ── CTA ── */}
+        <Contact />
       </main>
       <Footer />
     </>

@@ -8,10 +8,14 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import { pageHeaders } from "@/lib/data";
 import Contact from "@/components/sections/Contact";
+import Image from "next/image";        // ← ADD THIS
+import Link from "next/link";   
 
 /* ─────────── Types ─────────── */
 interface ServiceDetail {
   id: string;
+    href: string;           // ← ADD THIS
+  image: string;  
   icon: React.ElementType;
   title: string;
   shortDesc: string;
@@ -25,6 +29,8 @@ const services: ServiceDetail[] = [
     id: "ghostwriting",
     icon: PenTool,
     title: "Ghostwriting",
+     href: "/services/ghostwriting",   // ← ADD
+    image: "/services/ghostwriting.png", // ← ADD
     shortDesc: "Your voice, our words  professionally written manuscripts that sound exactly like you.",
     fullDesc:
       "Our elite ghostwriting team transforms your ideas, expertise, and stories into compelling manuscripts. Whether it's a memoir, business book, or fiction novel, we capture your unique voice while delivering publishable quality prose. Every project includes unlimited revisions and full confidentiality.",
@@ -40,6 +46,8 @@ const services: ServiceDetail[] = [
     id: "editing",
     icon: FileText,
     title: "Book Editing",
+     href: "/services/editing-proofreading",
+    image: "/services/editing.png",
     shortDesc: "From developmental editing to proofreading  polish your manuscript to perfection.",
     fullDesc:
       "Our editorial team includes former acquisitions editors from major publishing houses. We offer three tiers: developmental editing (structure & story), copy editing (grammar & style), and proofreading (final polish). Each tier ensures your book meets industry standards.",
@@ -55,6 +63,8 @@ const services: ServiceDetail[] = [
     id: "design",
     icon: Palette,
     title: "Cover Design",
+     href: "/services/cover-design-typesetting",
+    image: "/services/design.png",
     shortDesc: "Stunning covers that sell  designed by award-winning cover artists.",
     fullDesc:
       "Your book cover is your #1 marketing tool. Our designers have created covers for New York Times bestsellers. We deliver print-ready files, eBook covers, 3D mockups, and social media banners  all designed to make readers stop scrolling and start buying.",
@@ -70,6 +80,8 @@ const services: ServiceDetail[] = [
     id: "publishing",
     icon: BookOpen,
     title: "Publishing",
+     href: "/services/publishing-distribution",
+    image: "/services/publishing.png",
     shortDesc: "End-to-end publishing  from ISBN to global distribution on every major platform.",
     fullDesc:
       "We handle the entire publishing process: ISBN assignment, interior formatting, print-on-demand setup, and global distribution to Amazon, Barnes & Noble, Apple Books, Kobo, and 40,000+ retailers worldwide. You retain 100% of your royalties.",
@@ -85,6 +97,8 @@ const services: ServiceDetail[] = [
     id: "marketing",
     icon: BarChart3,
     title: "Book Marketing",
+     href: "/services/book-marketing-pr",
+    image: "/services/marketing.png",
     shortDesc: "Launch strategies that drive sales  from Amazon ads to PR campaigns.",
     fullDesc:
       "Writing the book is only half the battle. Our marketing team builds custom launch strategies including Amazon advertising, social media campaigns, email marketing, book reviews, and media outreach. We help your book find its audience and maximize sales.",
@@ -100,6 +114,8 @@ const services: ServiceDetail[] = [
     id: "branding",
     icon: Sparkles,
     title: "Author Branding",
+     href: "/services/audiobook-production", // or create /services/branding
+    image: "/services/branding.png",
     shortDesc: "Build a brand that readers remember  websites, logos, and social presence.",
     fullDesc:
       "Successful authors are brands. We create cohesive author branding including custom websites, logos, social media kits, email signatures, and brand guidelines. Stand out in a crowded market with a professional presence that converts browsers into buyers.",
@@ -124,11 +140,17 @@ function ServiceCard({ service, index }: { service: ServiceDetail; index: number
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Image / Icon Placeholder */}
         <div className={`relative overflow-hidden rounded-2xl border border-gold-500/10 ${!isEven ? "lg:order-2" : ""}`}>
-          <div className="aspect-[4/3] bg-ink-800 flex items-center justify-center">
-            <Icon size={80} className="text-gold-500/15" />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-900/60 to-transparent" />
-        </div>
+  <Link href={service.href} className="block relative aspect-[4/3]">
+    <Image
+      src={service.image}
+      alt={service.title}
+      fill
+      className="object-cover transition-transform duration-700 hover:scale-105"
+      sizes="(max-width: 1024px) 100vw, 50vw"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-ink-900/60 to-transparent" />
+  </Link>
+</div>
 
         {/* Content */}
         <div className={`${!isEven ? "lg:order-1" : ""}`}>
@@ -211,12 +233,7 @@ export default function ServicesPage() {
               description={header.description}
             />
 
-            {/* Quick links grid */}
-            <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {services.map((service) => (
-                <ServiceQuickCard key={service.id} service={service} />
-              ))}
-            </div>
+
           </div>
         </section>
 

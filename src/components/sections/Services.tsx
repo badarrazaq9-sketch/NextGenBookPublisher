@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   PenLine,
   BookOpenCheck,
@@ -62,13 +63,14 @@ export default function Services() {
                     ))}
                   </ul>
 
-                  <a
-                    href="#contact"
+                  {/* ✅ Updated: Links to individual service page */}
+                  <Link
+                    href={service.href}
                     className="relative mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-gold-300 transition-all duration-300 hover:gap-3 hover:text-gold-200"
                   >
                     Discuss this service
                     <ArrowRight size={14} />
-                  </a>
+                  </Link>
                 </article>
               </Reveal>
             );

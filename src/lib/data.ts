@@ -10,17 +10,16 @@ export const site = {
   phone: "+1 (843) 410-9324",
   phoneHref: "tel:+18885550142",
   email: "hello@nexgenbookpublishers.com",
-  address: "244 Fifth Avenue, Suite 1200, New York, NY 10001",
+  address: "1320 Main St, Suite 300, Columbia, SC 29201, United States",
   hours: "Mon – Fri, 9:00 AM – 6:00 PM EST",
 };
-
 const navLinks = [
   { label: "Home", href: "/home" },        // ← Changed from "/"
   { label: "Services", href: "/services" },
   { label: "Process", href: "/process" },
-  { label: "Portfolio", href: "/portfolio" },
+  { label: "Portfolio", href: "/Ourbook" },
   { label: "Pricing", href: "/pricing" },
-  { label: "FAQ", href: "/faq" },
+  { label: "FAQ", href: "/Faq" },
   { label: "Contact", href: "/contact" },
 ];
 export const heroStats = [
@@ -32,6 +31,8 @@ export const heroStats = [
 
 export const services = [
   {
+    slug: "ghostwriting",
+    href: "/ghostwriting",
     icon: "PenLine",
     title: "Ghostwriting",
     description:
@@ -39,6 +40,8 @@ export const services = [
     points: ["Fiction & non-fiction", "Memoir & biography", "Full confidentiality"],
   },
   {
+    slug: "editing-proofreading",
+    href: "/editing-proofreading",
     icon: "BookOpenCheck",
     title: "Editing & Proofreading",
     description:
@@ -46,13 +49,17 @@ export const services = [
     points: ["Developmental editing", "Line & copy editing", "Final proofread"],
   },
   {
+    slug: "cover-design-typesetting",
+    href: "/cover-design-typesetting",
     icon: "Palette",
     title: "Cover Design & Typesetting",
     description:
-      "Bespoke covers and interior layouts engineered to stand out on a shelf  and in a thumbnail.",
+      "Bespoke covers and interior layouts engineered to stand out on a shelf and in a thumbnail.",
     points: ["Custom cover art", "Interior typesetting", "eBook formatting"],
   },
   {
+    slug: "publishing-distribution",
+    href: "/publishing-distribution",
     icon: "Library",
     title: "Publishing & Distribution",
     description:
@@ -60,6 +67,8 @@ export const services = [
     points: ["ISBN & copyright", "Print-on-demand", "Global distribution"],
   },
   {
+    slug: "book-marketing-pr",
+    href: "/book-marketing-pr",
     icon: "Megaphone",
     title: "Book Marketing & PR",
     description:
@@ -67,6 +76,8 @@ export const services = [
     points: ["Launch strategy", "Media & press kits", "Amazon optimization"],
   },
   {
+    slug: "audiobook-production",
+    href: "/audiobook-production",
     icon: "Headphones",
     title: "Audiobook Production",
     description:
@@ -74,6 +85,7 @@ export const services = [
     points: ["Pro narrators", "Studio mastering", "ACX-ready delivery"],
   },
 ];
+
 
 export const processSteps = [
   {
@@ -286,22 +298,30 @@ export const footerColumns = [
   {
     title: "Services",
     links: [
-      { label: "Ghostwriting", href: "#services" },
-      { label: "Editing & Proofreading", href: "#services" },
-      { label: "Cover Design", href: "#services" },
-      { label: "Publishing & Distribution", href: "#services" },
-      { label: "Book Marketing", href: "#services" },
-      { label: "Audiobook Production", href: "#services" },
+      { label: "Ghostwriting", href: "/ghostwriting" },
+      { label: "Editing & Proofreading", href: "/editing-proofreading" },
+      { label: "Cover Design", href: "/cover-design-typesetting" },
+      { label: "Publishing & Distribution", href: "/publishing-distribution" },
+      { label: "Book Marketing", href: "/book-marketing-pr" },
+      { label: "Audiobook Production", href: "/audiobook-production" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "Our Process", href: "#process" },
-      { label: "Published Books", href: "#books" },
-      { label: "Why NexGen", href: "#why-us" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Contact Us", href: "#contact" },
+      { label: "Our Process", href: "/process" },
+      { label: "Published Books", href: "/Ourbook" },
+      // { label: "Why NexGen", href: "#why-us" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Contact Us", href: "/contact" },
+    ],
+  },
+    {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Cookie Policy", href: "/cookies" },
     ],
   },
 ];
